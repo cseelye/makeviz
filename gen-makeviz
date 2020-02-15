@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+
+touch /tmp/before
+ls callgrind* > /tmp/before || true
+remake --targets -r | grep -v %| grep -v '\t*\.'|xargs remake -n --profile -B
+ls callgrind* > /tmp/after
+callgrind_file=$(comm -1 -3 /tmp/before /tmp/after)
+python3 /gprof2dot.py --format=callgrind "${callgrind_file}" | dot -Tpng -o makeviz.png
+rm --one-file-system "${callgrind_file}"
+
