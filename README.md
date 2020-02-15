@@ -1,5 +1,5 @@
 # makeviz
-This tool combines the work of remake, gprof2dot, and dot into a single place to create visual dependency graphs from your Makefile.
+This tool combines the work of remake, gprof2dot, and graphviz into a single place to create visual dependency graphs from your Makefile.
 
 Docker Hub: https://hub.docker.com/r/cseelye/makeviz  
 Github: https://github.com/cseelye/makeviz
