@@ -7,9 +7,9 @@ Github: https://github.com/cseelye/makeviz
 ## Usage
 Mount your sandbox into `/src` in the container and it will create makeviz.png in your sandbox directory.
 ```
-docker run --rm -it -v $(pwd):/src makeviz
+docker run --rm -it -v $(pwd):/src cseelye/makeviz
 ```
 For convenience, add an alias to your shell profile
 ```
-alias makeviz='docker run --rm -it -v $(pwd):/src makeviz'
+alias makeviz='docker run --rm -it -v $(pwd):/src cseelye/makeviz'
 ```
