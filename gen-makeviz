@@ -9,7 +9,7 @@ set -euo pipefail
 echo "Profiling Makefile"
 touch /tmp/before
 ls callgrind.out.* > /tmp/before || true
-for target in $(remake --targets --no-builtin-rules | sed -e 's/^[[:space:]]*//' -e '/^\./d'); do
+for target in $(remake --targets --no-builtin-rules | sed -e 's/^[[:space:]]*//' -e '/^\./d' | awk '{print $1}' | grep -v '%'); do
     remake --always-make --dry-run --profile ${target}
 done
 ls callgrind.out.* > /tmp/after
